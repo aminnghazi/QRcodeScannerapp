@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity implements ZXingScannerView.
 //request for permission////////
         if(Build.VERSION.SDK_INT >=Build.VERSION_CODES.M){
             if (checkpermission()){
-                Toast.makeText(this, "Permision Is Granted", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(this, "Permision Is Granted", Toast.LENGTH_SHORT).show();
             }
             else {
                 requestpermission();

@@ -50,28 +50,31 @@ public class ScannerQR extends AppCompatActivity implements  ZXingScannerView.Re
     @Override
     public void handleResult(final Result result) {
         final String scanResult = result.getText();
-//        Intent i = new Intent();
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setCancelable(false);
-        builder.setTitle("Open Webpage");
-        builder.setPositiveButton(" No,Thanks", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                scannerView.resumeCameraPreview(ScannerQR.this);
-//                setResult(RESULT_CANCELED);
-                finish();
-            }
-        });
-        builder.setNeutralButton("Open WebPage", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                Intent i  = new Intent(Intent.ACTION_VIEW , Uri.parse(scanResult));
-                startActivity(i);
-            }
-        });
-        builder.setMessage("Do You Want To Open  " + scanResult + " ?");
-        AlertDialog alertDialog  =  builder.create();
-        alertDialog.show();
+        Intent i = new Intent(this ,VideoPlayer.class);
+        i.putExtra("adress" , scanResult);
+        startActivity(i);
+////        Intent i = new Intent();
+//        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+//        builder.setCancelable(false);
+//        builder.setTitle("Open Webpage");
+//        builder.setPositiveButton(" No,Thanks", new DialogInterface.OnClickListener() {
+//            @Override
+//            public void onClick(DialogInterface dialog, int which) {
+//                scannerView.resumeCameraPreview(ScannerQR.this);
+////                setResult(RESULT_CANCELED);
+//                finish();
+//            }
+//        });
+//        builder.setNeutralButton("Open WebPage", new DialogInterface.OnClickListener() {
+//            @Override
+//            public void onClick(DialogInterface dialog, int which) {
+//                Intent i  = new Intent(Intent.ACTION_VIEW , Uri.parse(scanResult));
+//                startActivity(i);
+//            }
+//        });
+//        builder.setMessage("Do You Want To Open  " + scanResult + " ?");
+//        AlertDialog alertDialog  =  builder.create();
+//        alertDialog.show();
     }
 
     @Override
